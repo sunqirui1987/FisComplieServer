@@ -15,9 +15,22 @@ import time
 import io
 import subprocess
 
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from SocketServer import ThreadingMixIn, TCPServer
-import urllib
+
+python_version = sys.version_info[0]
+
+# Sublime 3 (Python 3.x)
+if python_version == 3:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    from socketserver import ThreadingMixIn, TCPServer
+    # from io import StringIO
+    from urllib import parse as urllib
+
+# Sublime 2 (Python 2.x)
+else:
+    from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+    from SocketServer import ThreadingMixIn, TCPServer
+    # from StringIO import StringIO
+    import urllib
 
 
 settings = None
