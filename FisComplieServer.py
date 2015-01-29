@@ -235,11 +235,8 @@ class FisComplieServerHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html; charset=%s" % enc)
             self.send_header("Content-Length", str(len(encoded)))
             self.end_headers()
-        except error, arg:
-            (errno, err_msg) = arg
-            msg = "list server : {0}, errno={1}"
-            msg.format(err_msg, errno)
-            sublime.message_dialog(msg)
+        except error:
+            sublime.message_dialog("error")
        
         return f
 
@@ -306,11 +303,8 @@ class FiscomplieserverStartCommand(sublime_plugin.ApplicationCommand):
             thread = FisComplieServerThread()
             thread.start()
             self.browser_fis()
-        except socket.error, arg:
-            (errno, err_msg) = arg
-            msg = "start server : {0}, errno={1}"
-            msg.format(err_msg, errno)
-            sublime.message_dialog(msg)
+        except socket.error:
+            sublime.message_dialog("error")
 
     def start_fis(self):
         re = os.system(settings.get('fisarg'))
