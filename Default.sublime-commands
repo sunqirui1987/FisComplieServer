@@ -1,0 +1,13 @@
+[
+    {
+        "command": "fiscomplieserver_start",
+        "caption": "Fis: 启动fis编译"
+    },
+    {
+        "caption": "Fis: 配置", 
+        "command": "open_file", 
+        "args": {
+            "file": "${packages}/User/fiscomplieserver.sublime-settings"
+        }
+    }
+]

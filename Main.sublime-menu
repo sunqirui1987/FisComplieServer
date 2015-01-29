@@ -1,0 +1,28 @@
+[
+    {
+        "caption": "Tools",
+        "mnemonic": "T",
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Fis",
+                "children":
+                [
+                    {
+                        "command": "fiscomplieserver_start",
+                        "caption": "启动fis编译"
+                    },
+                    {
+                        "caption": "配置", 
+                        "command": "open_file", 
+                        "args": {
+                            "file": "${packages}/User/fiscomplieserver.sublime-settings"
+                        }
+                    }
+                ]
+            }
+
+        ]
+    }
+]
